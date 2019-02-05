@@ -1,0 +1,31 @@
+{
+  "id": "7c3749bd-241f-44c7-8ce7-483ae18f8c87",
+  "alias": "TeamSiteFullWidthApplicationCustomizer",
+  "componentType": "Extension",
+  "extensionType": "ApplicationCustomizer",
+  "version": "0.0.1",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "loaderConfig": {
+    "entryModuleId": "team-site-full-width-application-customizer",
+    "internalModuleBaseUrls": [
+      "https://localhost:4321/"
+    ],
+    "scriptResources": {
+      "team-site-full-width-application-customizer": {
+        "type": "path",
+        "path": "dist/team-site-full-width-application-customizer.js"
+      },
+      "@microsoft/decorators": {
+        "type": "component",
+        "version": "1.7.1",
+        "id": "f97266fb-ccb7-430e-9384-4124d05295d3"
+      },
+      "@microsoft/sp-application-base": {
+        "type": "component",
+        "version": "1.7.1",
+        "id": "4df9bb86-ab0a-4aab-ab5f-48bf167048fb"
+      }
+    }
+  }
+}

@@ -1,10 +1,12 @@
 import { override } from '@microsoft/decorators';
 import { BaseApplicationCustomizer } from '@microsoft/sp-application-base';
 export interface ITeamSiteFullWidthApplicationCustomizerProperties {
-  fullWidthZone: boolean;
+  fullWidthZone: string;
 }
 
 require("./css/customStyles.module.scss");
+
+var init = false;
 
 export default class TeamSiteFullWidthApplicationCustomizer extends BaseApplicationCustomizer<ITeamSiteFullWidthApplicationCustomizerProperties> {
 
@@ -18,11 +20,13 @@ export default class TeamSiteFullWidthApplicationCustomizer extends BaseApplicat
         resizeEvent.initUIEvent('resize', true, false, window, 0);
         window.dispatchEvent(resizeEvent);
       }
-
-      let fullWidthZone: boolean = this.properties.fullWidthZone;
+      if(init){
+        return;
+      }
+      let fullWidthZone: string = this.properties.fullWidthZone;
       var style : string;
-
-      if (fullWidthZone == false) {
+      init=true;
+      if (fullWidthZone.toLowerCase() == "false") {
         // don't create fullwidth zone
 
         style=`.sp-pageLayout-sideNav [class^='deferredLeftNav'] {
@@ -91,7 +95,7 @@ export default class TeamSiteFullWidthApplicationCustomizer extends BaseApplicat
           margin-right: auto;
         }`;
       }
-
+      
       var css = style;
       var head = document.head || document.getElementsByTagName('head')[0];
       var styletag = document.createElement('style');
