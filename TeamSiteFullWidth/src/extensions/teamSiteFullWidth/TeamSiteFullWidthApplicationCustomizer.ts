@@ -28,10 +28,17 @@ export default class TeamSiteFullWidthApplicationCustomizer extends BaseApplicat
       init=true;
       if (fullWidthZone.toLowerCase() == "false") {
         // don't create fullwidth zone
-
+        
         style=`.sp-pageLayout-sideNav [class^='deferredLeftNav'] {
           max-width: 0px;
         }
+
+        
+        .sp-pageLayout-sideNav [class^='spNav'] {
+          width: 0px!important; 
+          min-width: 0px!important
+        }
+        
 
         [class^='pageHeader'] {
           display: none;
@@ -53,6 +60,11 @@ export default class TeamSiteFullWidthApplicationCustomizer extends BaseApplicat
       } else {  
         style=`.sp-pageLayout-sideNav [class^='deferredLeftNav'] {
           max-width: 0px;
+        }
+
+        .sp-pageLayout-sideNav [class^='spNav'] {
+          width: 0px!important; 
+          min-width: 0px!important
         }
 
         [class^='pageHeader'] {
